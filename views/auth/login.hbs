@@ -1,0 +1,24 @@
+
+  <br><br>
+
+<form  class="form_background vertical-center" action="/login" method="POST" id="form-container">
+
+  <input id="email" type="email" name="email" placeholder="email">
+
+  <br><br>
+
+  <input id="password" type="password" name="password" placeholder="Your password">
+  <br>
+  {{#if message }}
+    <div class="account-message">{{ message }}</div>
+  {{/if}}
+
+  <br><br>
+
+  <button class="confirm_button">Login</button>
+
+  <p class="account-message">
+    Don't have an account yet?
+    <a href="/auth/signup">Signup</a>
+  </p>
+</form>
