@@ -12,9 +12,9 @@ router.get("/login", (req, res, next) => {
   res.render("auth/login", { "message": req.flash("error") });
 });
 
-router.post("/login", passport.authenticate("local", {
+router.post("/login", (req,res,next)=> {console.log(req.body); next()},passport.authenticate("local", {
   successRedirect: "/",
-  failureRedirect: "/auth/login",
+  failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true
 }));

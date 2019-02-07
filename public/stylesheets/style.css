@@ -47,7 +47,7 @@ textarea {
   resize: none;
 }
 
-#signup_background {
+.form_background {
   width: 70%;
   min-width: 200px;
   margin-left: auto;
@@ -71,7 +71,7 @@ textarea {
   clear: left;
 }
 
-#create_account {
+.confirm_button {
   display: block;
   border-radius: 30px;
   padding: 5px 20px;
@@ -81,6 +81,21 @@ textarea {
   font-family: SourceSansRoman-Light;
   font-size: 2em;
   color: #065dff;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  outline: none;
+  
+}
+
+.confirm_button:hover,
+.confirm_button:focus,
+.confirm_button:active {
+    transform: scale(1.1);
 }
 
 .account-message{
@@ -88,4 +103,26 @@ textarea {
   color: #ccc;
   font-family: SourceSansRoman-Light;
   font-size: 0,5em;
+}
+
+
+/* .vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+} */
+
+.dot {
+  height: 100px;
+  width: 100px;
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+  color: #555;
+  border-radius: 50% !important;
+  text-align: center;
+  display: inline-block;
 }
