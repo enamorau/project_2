@@ -1,32 +1,58 @@
-<h2>Signup</h2>
+<br><br>
 
-<form action="/signup" method="POST" id="form-container">
-  <label for="email">Username</label>
-  <input id="email" type="text" name="email" placeholder="JonSnow@random.com">
-  
-  <br><br>
 
-  <label for="occupations">Occupations</label>
-  <input id="occupations" />
+<form id="signup_background" action="/signup" method="POST" id="form-container">
+
+  <input autocomplete="off" style="margin-top: 30px" id="email" type="email" name="email" placeholder="your@email.com">
 
   <br><br>
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
+
+  <input id="full_name" type="text" name="fullName" placeholder="Full Name">
+
+  <br><br>
+
+
+  <input id="occupations" name="occupation" placeholder="Occupation" />
+
+
+  <br><br>
+
+
+  <input id="looking_for" type="list" name="lookingFor" placeholder="looking for">
+
+  <br><br>
+
+
+  <textarea id="bio" name="bio" placeholder="Bio"></textarea>
+
+  <br><br>
+
+
+  <input id="link" type="url" name="link" placeholder="Website / portfolio">
+
+  <br><br>
+
+
+  <input id="password" type="password" name="password" placeholder="Password">
+
+
+  <br><br>
+
   {{#if message }}
-  <div class="error-message">{{ message }}</div>
+  <div class="account-message">{{ message }}</div>
   {{/if}}
 
   <br><br>
 
-  <button>Create account</button>
+  <button id="create_account">Signup</button>
 
   <p class="account-message">
     Do you already have an account?
     <a href="/login">Login</a>
   </p>
 </form>
+
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-autocomplete/1.3.5/jquery.easy-autocomplete.min.js"></script>
