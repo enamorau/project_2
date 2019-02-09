@@ -12,9 +12,9 @@ router.get("/login", (req, res, next) => {
   res.render("auth/login", { "message": req.flash("error") });
 });
 
-router.post("/login", passport.authenticate("local", {
+router.post("/login", (req,res,next)=> {console.log(req.body); next()},passport.authenticate("local", {
   successRedirect: "/",
-  failureRedirect: "/auth/login",
+  failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true
 }));
@@ -24,16 +24,20 @@ router.get("/signup", (req, res, next) => {
 });
 
 router.post("/signup", (req, res, next) => {
-  const username = req.body.username;
-  const password = req.body.password;
-  if (username === "" || password === "") {
+  const {email, password, fullName, occupation, lookingFor, bio, link} = req.body;
+
+  console.log(req.body)
+  console.log(1)
+  if (email === "" || password === "") {
     res.render("auth/signup", { message: "Indicate username and password" });
     return;
   }
+console.log(2)
 
-  User.findOne({ username }, "email", (err, user) => {
+  User.findOne({ email }, "email", (err, user) => {
     if (user !== null) {
-      res.render("auth/signup", { message: "The emal has allready been registered" });
+      console.log("email null")
+      res.render("auth/signup", { message: "The email has allready been registered" });
       return;
     }
 
@@ -42,14 +46,21 @@ router.post("/signup", (req, res, next) => {
 
     const newUser = new User({
       email,
-      password: hashPass
+      password: hashPass,
+      fullName, 
+      occupation, 
+      lookingFor, 
+      bio, 
+      link
     });
 
     newUser.save()
     .then(() => {
+      console.log(3)
       res.redirect("/");
     })
     .catch(err => {
+      console.log(4)
       res.render("auth/signup", { message: "Something went wrong" });
     })
   });
