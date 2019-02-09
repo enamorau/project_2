@@ -155,15 +155,15 @@ nav.mymenu {
   display: inline-block;
   text-align: center;
   border-radius: 20px;	
-  background: radial-gradient(circle, #529DF9 0%, #3348DA 100%);
+  background: radial-gradient(31% -171%, #529df9 100%, #3348da 100%);
   color: white;
-  font-size: 21px;
-  font-weight: 900;	
-  line-height: 27px;
+  font-size: 1.7em;
+  font-weight: 300;	
+  /* line-height: 27px; */
 }
 
 .row.first {
-  background-image: radial-gradient(circle, #529DF9 0%, #3348DA 100%);	
+  background-image: radial-gradient(31% -171%, #529df9 100%, #3348da 100%);
   box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.5);
   padding: 60px;
   min-height: 400px;
@@ -221,7 +221,7 @@ footer.myfooter {
   border-top-right-radius: 50%;
   border-top-left-radius: 50%;
   border: 1px solid #979797;	
-  background: radial-gradient(circle, #529DF9 0%, #3348DA 100%);	
+  background: radial-gradient(31% -171%, #529df9 100%, #3348da 100%);;	
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);	
   color: #FFFFFF;		
   font-size: 18px;	
