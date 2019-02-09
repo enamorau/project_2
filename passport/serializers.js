@@ -1,16 +1,16 @@
 const passport = require('passport');
 const User = require('../models/User');
 
-passport.serializeUser((loggedInUser, cb) => {
-  cb(null, loggedInUser._id);
+passport.serializeUser((loggedInUser, cbs) => {
+  cbs(null, loggedInUser._id);
 });
 
-passport.deserializeUser((userIdFromSession, cb) => {
+passport.deserializeUser((userIdFromSession, cbs) => {
   User.findById(userIdFromSession)
   .then(userDocument => {
-    cb(null, userDocument);
+    cbs(null, userDocument);
   })
   .catch(err => {
-    cb(err);
+  cbs(err);
   })
 });
