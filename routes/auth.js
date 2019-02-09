@@ -11,24 +11,30 @@ const bcryptSalt = 10;
 
 
 router.get("/login", (req, res, next) => {
+  if (req.user) {
+    res.redirect('/dashboard')
+  }
   res.render("auth/login", { "message": req.flash("error") });
 });
 
 router.post("/login", (req,res,next)=> {console.log(req.body); next()},passport.authenticate("local", {
-  successRedirect: "/",
+  successRedirect: "/dashboard",
   failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true
 }));
 
 router.get("/signup", (req, res, next) => {
+  if (req.user) {
+    res.redirect('/dashboard')
+  }
   res.render("auth/signup");
 });
 
 router.post("/signup", uploadCloud.single('photo'), (req, res, next) => {
   const {email, password, fullName, occupation, lookingFor, bio, link} = req.body;
 
-  console.log(req.body)
+  /* console.log(req.body) */
   console.log(1)
   if (email === "" || password === "") {
     res.render("auth/signup", { message: "Indicate username and password" });
@@ -64,7 +70,7 @@ console.log(2)
     newUser.save()
     .then(() => {
       console.log(3)
-      res.redirect("/");
+      res.redirect("/dashboard");
     })
     .catch(err => {
       console.log(4)
@@ -73,9 +79,5 @@ console.log(2)
   });
 });
 
-router.get("/logout", (req, res) => {
-  req.logout();
-  res.redirect("/");
-});
 
 module.exports = router;

@@ -8,6 +8,7 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const passport = require('passport');
 
 const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
@@ -55,7 +56,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
   
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'projo - Where ideas meet their teams';
 
 
 // Enable authentication using session + passport
@@ -74,6 +75,9 @@ app.use('/', index);
 
 const authRoutes = require('./routes/auth');
 app.use('/', authRoutes);
+
+const dashboard = require('./routes/dashboard')
+app.use('/', dashboard);
       
 
 module.exports = app;

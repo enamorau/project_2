@@ -17,9 +17,10 @@
     <div class="col">
       <h1>My Match</h1>
       <ul>
-        {{#each user}}
-        <img src="{{this.imgPath}}" </img> <li>{{this.fullName}}</li>
+        {{#each user.matchedWithProjects}}
+        <img src="{{this.imgPath}}" </img> <li>{{this.projectName}}</li>
         <li>{{this.occupation}}</li>
+        
         {{else}}
         <p>No match yet!</p>
         {{/each}}
