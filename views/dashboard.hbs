@@ -1,0 +1,49 @@
+<div class="container-fluid">
+
+  <div class="row first">
+
+    <div class="col-sm-6">
+      <button class="people">Meet New People</button>
+    </div>
+
+    <div class="col-sm-6">
+      <div>
+        <button class="project">Discover Project</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mymatch">
+    <div class="col">
+      <h1>My Match</h1>
+      <ul>
+        {{#each user}}
+        <img src="{{this.imgPath}}" </img> <li>{{this.fullName}}</li>
+        <li>{{this.occupation}}</li>
+        {{else}}
+        <p>No match yet!</p>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+  <div class="row myproject justify-content-between">
+
+    <div class="col-sm-8 projectmatch">
+      <h1>My Project</h1>
+      <ul>
+        {{#each project}}
+        <img src="{{this.imgPath}}" </img> <li>{{this.projectName}}</li>
+        {{else}}
+        <p>No match yet!</p>
+        {{/each}}
+      </ul>
+    </div>
+
+    <div class="col col-sm-4 newproject">
+       <img class="plus" src="./images/+.png" />
+      <p>add new project</p>
+    </div>
+
+  </div>
+</div>
