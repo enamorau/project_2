@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -136,6 +135,8 @@ body {
 header.myheader {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
 }
 
 .logo {
@@ -172,6 +173,7 @@ nav.mymenu {
   display: flex;
   align-items: center;
   justify-content: center;
+  max-height: 300px;
 }
 
 .presentation2 {
@@ -192,8 +194,10 @@ button.home-button {
 
 
 
-img.people {
+img.people, img.plus, img.computer {
   display: inline-block;
+  width: 100%;
+  height: auto;
 }
 
 .testimony {
@@ -214,6 +218,8 @@ img.people {
 
 
 footer.myfooter {
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
   border: 1px solid #979797;	
   background: radial-gradient(circle, #529DF9 0%, #3348DA 100%);	
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);	
